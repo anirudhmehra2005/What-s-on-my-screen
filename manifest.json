@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "What's On My Screen",
+  "version": "1.0.0",
+  "description": "Get instant AI-powered explanations of any text you select on webpages",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "What's On My Screen"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["popup.html", "popup.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+} 
